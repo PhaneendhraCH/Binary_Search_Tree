@@ -1,3 +1,16 @@
+#if 0
+
+
+Binary Search Tree in C
+
+Author : Phaneendhra
+Description : Used GDB for figuring out errors.
+
+Compile : gcc -g bst.c -o bst
+
+#endif
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -127,8 +140,8 @@ int main()
     head = insert(head,7);
     insert(head,4);
     insert(head,9);
-    insert(head,5);
     insert(head,9);
+    insert(head,5);
     
     preorder(head);
     postorder(head);
