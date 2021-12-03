@@ -153,6 +153,24 @@ void LeftView(struct tree *root){
 }
 
 
+void rightviewprint(struct tree *root,int level,int *maxlevel){
+    if (root == NULL)
+        return;
+    
+    if (*maxlevel<level){
+        printf("%d\n",root->data);
+        *maxlevel = level;
+    }
+    
+    rightviewprint(root->right,level+1,maxlevel);
+    rightviewprint(root->left,level+1,maxlevel);
+}
+
+void RightView(struct tree *root){
+    int currentlevel=0;
+    rightviewprint(root,1,&currentlevel);
+}
+
 int main()
 {
     //struct tree *head=NULL;
@@ -171,6 +189,7 @@ int main()
     HigherNode(head);
     
     LeftView(head);	// Print Left View of BST
+    RightView(head);	// Print Right View of BST
     return 0;
 }
 
