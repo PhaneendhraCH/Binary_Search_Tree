@@ -123,6 +123,43 @@ struct tree *insert(struct tree *root,int value){
    return root;
 }
 
+void leftviewprint(struct tree *root,int level,int *maxlevel){
+    if (root == NULL)
+        return;
+    
+    if (*maxlevel<level){
+        printf("%d\n",root->data);
+        *maxlevel = level;
+    }
+    
+    leftviewprint(root->left,level+1,maxlevel);
+    leftviewprint(root->right,level+1,maxlevel);
+}
+
+void LeftView(struct tree *root){
+    int currentlevel=0;
+    leftviewprint(root,1,&currentlevel);
+}
+
+
+void rightviewprint(struct tree *root,int level,int *maxlevel){
+    if (root == NULL)
+        return;
+    
+    if (*maxlevel<level){
+        printf("%d\n",root->data);
+        *maxlevel = level;
+    }
+    
+    rightviewprint(root->right,level+1,maxlevel);
+    rightviewprint(root->left,level+1,maxlevel);
+}
+
+void RightView(struct tree *root){
+    int currentlevel=0;
+    rightviewprint(root,1,&currentlevel);
+}
+
 int main()
 {
     
@@ -138,6 +175,9 @@ int main()
     search(head,9);
     lesserNode(head);
     HigherNode(head);
+    
+    LeftView(head);	// Print Left View of BST
+    RightView(head);	// Print Right View of BST
     return 0;
 }
 
