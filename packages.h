@@ -20,5 +20,10 @@
 	struct node *HigherNode(struct tree *);
 	struct node *lesserNode(struct tree *);
 	struct tree *search(struct tree *,int);
+	
+	void leftviewprint(struct tree *,int ,int *);
+	void LeftView(struct tree *);
 
+	void rightviewprint(struct tree *,int ,int *);
+	void RightView(struct tree *);
 #endif
